@@ -11,6 +11,7 @@ import Login from './Login'
 import TOTPAuth from "./TOTPAuth";
 import AddDevice from "./AddDevice";
 import Logout from "./Logout";
+import Profile from "./Profile";
 
 const AuthRouter = () => {
     let match = useRouteMatch();
@@ -28,6 +29,9 @@ const AuthRouter = () => {
                 </Route>
                 <Route path={`${match.path}/logout`}>
                     <Logout />
+                </Route>
+                <Route path={`${match.path}/profile`}>
+                    <Profile new={false} />
                 </Route>
             </Switch>
         </Router>
