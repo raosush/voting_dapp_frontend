@@ -18,21 +18,11 @@ const AuthRouter = () => {
     return(
         <Router>
             <Switch>
-                <Route path={`${match.path}/login`}>
-                    <Login />
-                </Route>
-                <Route path={`${match.path}/totpAuth`}>
-                    <TOTPAuth />
-                </Route>
-                <Route path={`${match.path}/addDevice`}>
-                    <AddDevice />
-                </Route>
-                <Route path={`${match.path}/logout`}>
-                    <Logout />
-                </Route>
-                <Route path={`${match.path}/profile`}>
-                    <Profile new={false} />
-                </Route>
+                <Route path={`${match.path}/login`} component={Login} />
+                <Route path={`${match.path}/totpAuth`} component={TOTPAuth} />
+                <Route path={`${match.path}/addDevice`} component={AddDevice} />
+                <Route path={`${match.path}/logout`} component={Logout} />
+                <Route path={`${match.path}/profile`} new={false} component={Profile} />
             </Switch>
         </Router>
     )

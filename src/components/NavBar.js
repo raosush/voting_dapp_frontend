@@ -31,6 +31,9 @@ const NavBar = () => {
                         (<LinkContainer to="/auth/login">
                             <Nav.Link>Login</Nav.Link>
                         </LinkContainer>)}
+                        <LinkContainer to="/elections/">
+                            <Nav.Link>Elections</Nav.Link>
+                        </LinkContainer>
                     <NavDropdown
                         className="mx-auto"
                         title="Menu"
