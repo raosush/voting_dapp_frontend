@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { fetchElectionCandidates } from "../../services/elections/electionService";
 import { Toast } from "react-bootstrap";
+import "./table.css"
 
 export default class ElectionCandidates extends Component {
     constructor(props) {
@@ -70,7 +71,7 @@ export default class ElectionCandidates extends Component {
                         <div>
                             <h4 className="text-center">Candidates</h4>
                             <br />
-                            <table className="table">
+                            {/* <table className="table">
                                 <thead className="thead-dark">
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
@@ -85,6 +86,64 @@ export default class ElectionCandidates extends Component {
                                         </tr>
                                     ))}
                                 </tbody>
+                            </table> */}
+                            <table>
+                                <tr className="elec-header">
+                                    <th className="elec-info">First name</th>
+                                    <th className="elec-info">Last name</th>
+                                    <th className="elec-info">Age</th>
+                                    <th className="elec-info">Country</th>
+                                    <th className="elec-info">Gender</th>
+                                </tr>
+                                <tr className="elec-row">
+                                    <td className="elec-element">John </td>
+                                    <td className="elec-element">Doe </td>
+                                    <td className="elec-element">25 </td>
+                                    <td className="elec-element">USA </td>
+                                    <td className="elec-element">Male </td>
+
+                                </tr>
+                                <tr className="elec-row">
+                                    <td className="elec-element">steve </td>
+                                    <td className="elec-element">Doe </td>
+                                    <td className="elec-element">28 </td>
+                                    <td className="elec-element">USA </td>
+                                    <td className="elec-element">Male </td>
+
+                                </tr>
+                                <tr className="elec-row">
+                                    <td className="elec-element">simo </td>
+                                    <td className="elec-element">Doe </td>
+                                    <td className="elec-element">26 </td>
+                                    <td className="elec-element">USA </td>
+                                    <td className="elec-element">Male </td>
+
+                                </tr>
+                                <tr className="elec-row">
+                                    <td className="elec-element">karim </td>
+                                    <td className="elec-element">Doe </td>
+                                    <td className="elec-element">21 </td>
+                                    <td className="elec-element">USA </td>
+                                    <td className="elec-element">Male </td>
+
+                                </tr>
+                                <tr className="elec-row">
+                                    <td className="elec-element">adam </td>
+                                    <td className="elec-element">Doe </td>
+                                    <td className="elec-element">20 </td>
+                                    <td className="elec-element">USA </td>
+                                    <td className="elec-element">Male </td>
+
+                                </tr>
+                                <tr className="elec-row">
+                                    <td className="elec-element">keven </td>
+                                    <td className="elec-element">Doe </td>
+                                    <td className="elec-element">20 </td>
+                                    <td className="elec-element">USA </td>
+                                    <td className="elec-element">Male </td>
+
+                                </tr>
+
                             </table>
                         </div>
                     </div>
