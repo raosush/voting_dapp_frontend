@@ -111,13 +111,6 @@ export default class Elections extends Component {
                             <th className="elec-info" scope="col">Voting End Time</th>
                         </tr>
                     </thead>
-                    {/* <tr className="elec-header">
-                        <th className="elec-info">First name</th>
-                        <th className="elec-info">Last name</th>
-                        <th className="elec-info">Age</th>
-                        <th className="elec-info">Country</th>
-                        <th className="elec-info">Gender</th>
-                    </tr> */}
                     <tbody>
                         {elections.map((election, i) => (
                             <tr className="elec-row" key={i}>

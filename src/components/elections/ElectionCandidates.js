@@ -87,7 +87,29 @@ export default class ElectionCandidates extends Component {
                                     ))}
                                 </tbody>
                             </table> */}
-                            <table>
+                            <table className="table">
+                                <thead className="thead-dark">
+                                    <tr className="elec-header">
+                                        <th className="elec-info" scope="col">Name</th>
+                                        <th className="elec-info" scope="col">Email</th>
+                                        <th className="elec-info" scope="col">Vote Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {candidates.map((candidate, i) => (
+                                        <tr className="elec-row" key={i}>
+                                            {/* <th className="elec-element" scope="row">
+                                                <Link to={`/elections/${election.id}`}>{election.position}</Link>
+                                            </th> */}
+                                            <td className="elec-element">{candidate.user.username}</td>
+                                            <td className="elec-element">{candidate.user.email}</td>
+                                            <td className="elec-element">0</td>
+                                        </tr>
+
+                                    ))}
+                                </tbody>
+                            </table>
+                            {/* <table>
                                 <tr className="elec-header">
                                     <th className="elec-info">First name</th>
                                     <th className="elec-info">Last name</th>
@@ -144,7 +166,7 @@ export default class ElectionCandidates extends Component {
 
                                 </tr>
 
-                            </table>
+                            </table> */}
                         </div>
                     </div>
                 </div></>

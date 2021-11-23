@@ -1,0 +1,39 @@
+[33mcommit 73371e2236fd98781ce4d0be7c80934fb97620c4[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Shashank-Panda <shashankpanda54@gmail.com>
+Date:   Tue Nov 23 15:33:08 2021 +0530
+
+    frontend enhanced
+
+[33mcommit 456c5119f48748f2314ca115fb94c43b0d2de25a[m
+Author: Sushanth Sathesh Rao <57192414+raosush@users.noreply.github.com>
+Date:   Thu Nov 18 17:52:29 2021 +0530
+
+    Elections Module
+    
+    - Add components for listing elections
+    - Add component to view nominations for each election
+    
+    Signed-off-by: Sushanth Sathesh Rao <57192414+raosush@users.noreply.github.com>
+
+[33mcommit 07a1152957d728201b3d731dba8503d767de2883[m
+Author: Sushanth Sathesh Rao <57192414+raosush@users.noreply.github.com>
+Date:   Sat Nov 13 17:57:21 2021 +0530
+
+    Profile module
+    
+    - Add views to add/edit profile
+    
+    Signed-off-by: Sushanth Sathesh Rao <57192414+raosush@users.noreply.github.com>
+
+[33mcommit f37439518f447c7b141aa7c3a81945d801d2dea2[m
+Author: Sushanth Sathesh Rao <57192414+raosush@users.noreply.github.com>
+Date:   Mon Nov 8 10:22:08 2021 +0530
+
+    Initial Commit
+    
+    - Setup frontend application bootstrapped using CRA
+    - Setup directories for writing clean code
+    - Implement authentication flow
+    - Implement TOTP based 2 factor authentication
+    
+    Signed-off-by: Sushanth Sathesh Rao <57192414+raosush@users.noreply.github.com>
