@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { fetchElectionCandidates } from "../../services/elections/electionService";
 import { Toast } from "react-bootstrap";
+import { Button } from 'react-bootstrap';
 import "./table.css"
 
 export default class ElectionCandidates extends Component {
@@ -71,102 +72,27 @@ export default class ElectionCandidates extends Component {
                         <div>
                             <h4 className="text-center">Candidates</h4>
                             <br />
-                            {/* <table className="table">
-                                <thead className="thead-dark">
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Vote Count</th>
-                                </thead>
-                                <tbody>
-                                    {candidates.map((candidate, i) => (
-                                        <tr key={i}>
-                                            <td>{candidate.user.username}</td>
-                                            <td>{candidate.user.email}</td>
-                                            <td>0</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table> */}
                             <table className="table">
                                 <thead className="thead-dark">
                                     <tr className="elec-header">
                                         <th className="elec-info" scope="col">Name</th>
                                         <th className="elec-info" scope="col">Email</th>
                                         <th className="elec-info" scope="col">Vote Count</th>
+                                        <th className="elec-info" scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {candidates.map((candidate, i) => (
                                         <tr className="elec-row" key={i}>
-                                            {/* <th className="elec-element" scope="row">
-                                                <Link to={`/elections/${election.id}`}>{election.position}</Link>
-                                            </th> */}
                                             <td className="elec-element">{candidate.user.username}</td>
                                             <td className="elec-element">{candidate.user.email}</td>
                                             <td className="elec-element">0</td>
+                                            <td className="elec-element"><Button variant="primary">Primary</Button>{' '}</td>
                                         </tr>
 
                                     ))}
                                 </tbody>
                             </table>
-                            {/* <table>
-                                <tr className="elec-header">
-                                    <th className="elec-info">First name</th>
-                                    <th className="elec-info">Last name</th>
-                                    <th className="elec-info">Age</th>
-                                    <th className="elec-info">Country</th>
-                                    <th className="elec-info">Gender</th>
-                                </tr>
-                                <tr className="elec-row">
-                                    <td className="elec-element">John </td>
-                                    <td className="elec-element">Doe </td>
-                                    <td className="elec-element">25 </td>
-                                    <td className="elec-element">USA </td>
-                                    <td className="elec-element">Male </td>
-
-                                </tr>
-                                <tr className="elec-row">
-                                    <td className="elec-element">steve </td>
-                                    <td className="elec-element">Doe </td>
-                                    <td className="elec-element">28 </td>
-                                    <td className="elec-element">USA </td>
-                                    <td className="elec-element">Male </td>
-
-                                </tr>
-                                <tr className="elec-row">
-                                    <td className="elec-element">simo </td>
-                                    <td className="elec-element">Doe </td>
-                                    <td className="elec-element">26 </td>
-                                    <td className="elec-element">USA </td>
-                                    <td className="elec-element">Male </td>
-
-                                </tr>
-                                <tr className="elec-row">
-                                    <td className="elec-element">karim </td>
-                                    <td className="elec-element">Doe </td>
-                                    <td className="elec-element">21 </td>
-                                    <td className="elec-element">USA </td>
-                                    <td className="elec-element">Male </td>
-
-                                </tr>
-                                <tr className="elec-row">
-                                    <td className="elec-element">adam </td>
-                                    <td className="elec-element">Doe </td>
-                                    <td className="elec-element">20 </td>
-                                    <td className="elec-element">USA </td>
-                                    <td className="elec-element">Male </td>
-
-                                </tr>
-                                <tr className="elec-row">
-                                    <td className="elec-element">keven </td>
-                                    <td className="elec-element">Doe </td>
-                                    <td className="elec-element">20 </td>
-                                    <td className="elec-element">USA </td>
-                                    <td className="elec-element">Male </td>
-
-                                </tr>
-
-                            </table> */}
                         </div>
                     </div>
                 </div></>
