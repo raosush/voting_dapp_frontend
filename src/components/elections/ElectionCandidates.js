@@ -87,7 +87,7 @@ export default class ElectionCandidates extends Component {
                                             <td className="elec-element">{candidate.user.username}</td>
                                             <td className="elec-element">{candidate.user.email}</td>
                                             <td className="elec-element">0</td>
-                                            <td className="elec-element"><Button variant="primary">Primary</Button>{' '}</td>
+                                            <td className="elec-element"><Button variant="primary">Vote</Button>{' '}</td>
                                         </tr>
 
                                     ))}
