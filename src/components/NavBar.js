@@ -23,9 +23,11 @@ const NavBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto container-fluid">
                     {localStorage.getItem('verified') === 'true' ?
-                        (<LinkContainer to="/auth/addDevice">
+                        (<><LinkContainer to="/auth/addDevice">
                             <Nav.Link>Add Device</Nav.Link>
-                        </LinkContainer>
+                        </LinkContainer><LinkContainer to="/elections/myNominations">
+                            <Nav.Link>My Nominations</Nav.Link>
+                            </LinkContainer></>
                         )
                         :
                         (<LinkContainer to="/auth/login">

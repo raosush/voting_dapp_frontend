@@ -1,31 +1,33 @@
 import { Component } from "react";
-import { castVote, fetchElectionCandidates } from "../../services/elections/electionService";
+import { fetchMyNominations } from "../../services/elections/electionService";
 import { Toast, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./table.css"
 
-export default class ElectionCandidates extends Component {
+export default class MyNominations extends Component {
     constructor(props) {
         super(props);
-        this.castVote = this.castVote.bind(this);
+        this.addCampaign = this.addCampaign.bind(this);
         this.state = {
             candidates: [],
-            election: {},
+            user: {},
             showToast: false,
-            toastMessage: ""
+            toastMessage: "",
+            redirect: false,
+            nominationId: null
         }
     }
 
     componentDidMount() {
-        this.fetchCandidates(this.props.match.params.id);
+        this.fetchCandidates();
     }
 
-    async fetchCandidates(query) {
-        const candidates = await fetchElectionCandidates(query);
+    async fetchCandidates() {
+        const candidates = await fetchMyNominations();
         if (candidates && typeof candidates !== 'string') {
             this.setState({
                 candidates: candidates.nominations,
-                election: candidates.nominations[0].election
+                user: candidates.nominations[0].user
             });
         } else {
             this.setState({
@@ -41,28 +43,21 @@ export default class ElectionCandidates extends Component {
         });
     }
 
-    async castVote(e) {
-        const response = await castVote(e.target.value);
-        const { election } = this.state;
-        if (response && typeof response !== 'string') {
-            this.setState({
-                showToast: true,
-                toastMessage: response.success,
-                election: {
-                    ...election,
-                    vote_count: response.vote_count
-                }
-            });
-        } else {
-            this.setState({
-                showToast: true,
-                toastMessage: response
-            });
-        }
+    addCampaign(e) {
+        this.setState({
+            redirect: true,
+            nominationId: e.target.value
+        });
     }
 
     render() {
-        const { candidates, election } = this.state;
+        const { candidates, user } = this.state;
+        if (this.state.redirect) {
+            return <Redirect to={{
+                pathname: '/elections/campaigns/addCampaign',
+                state: { 'nominationId': this.state.nominationId }
+            }} />       
+        }
         return (
             <><div>
                 <Toast onClose={() => this.setShowToast(false)} show={this.state.showToast} delay={5000} autohide>
@@ -75,21 +70,9 @@ export default class ElectionCandidates extends Component {
                 </Toast>
             </div><div className="card">
                     <div className="card-header text-center">
-                        {election.position}
+                        {user.username}
                     </div>
                     <div className="card-body">
-                        <p>
-                            <strong>Registration Deadline: </strong>
-                            {election.deadline}
-                        </p>
-                        <p>
-                            <strong>Start Date: </strong>
-                            {election.start_date}
-                        </p>
-                        <p>
-                            <strong>End Date: </strong>
-                            {election.end_date}
-                        </p>
                         <div>
                             <h4 className="text-center">Candidates</h4>
                             <br />
@@ -109,8 +92,8 @@ export default class ElectionCandidates extends Component {
                                                 <Link to={`/elections/campaigns/${candidate.id}`}>{candidate.user.username}</Link>
                                             </th>
                                             <td className="elec-element">{candidate.user.email}</td>
-                                            <td className="elec-element">{election.vote_count[candidate.user.id]}</td>
-                                            <td className="elec-element"><Button variant="primary" value={candidate.id} onClick={this.castVote}>Vote</Button>{' '}</td>
+                                            <td className="elec-element">{candidate.election.vote_count[candidate.user.id]}</td>
+                                            <td className="elec-element"><Button variant="primary" value={candidate.id} onClick={this.addCampaign}>Add Nomination</Button>{' '}</td>
                                         </tr>
 
                                     ))}

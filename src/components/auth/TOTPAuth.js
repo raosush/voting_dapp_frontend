@@ -48,7 +48,8 @@ const TOTPAuth = () => {
 
     if (loginstate) {
         return <Redirect to={{
-            pathname: '/'
+            pathname: '/',
+            state: { refresh: true }
         }}
         />
     }
