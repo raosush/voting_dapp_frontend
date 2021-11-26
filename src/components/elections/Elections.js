@@ -40,35 +40,6 @@ export default class Elections extends Component {
 
     render() {
         const { elections } = this.state;
-        // let elections = [{
-        //     position: "president",
-        //     id:1,
-        //     deadline: "23/4/12",
-        //     start_date: "30/4/12",
-        //     end_date: "5/5/12"
-        // },
-        // {
-        //     position: "president",
-        //     id:1,
-        //     deadline: "23/4/12",
-        //     start_date: "30/4/12",
-        //     end_date: "5/5/12"
-        // },
-        // {
-        //     position: "president",
-        //     id:1,
-        //     deadline: "23/4/12",
-        //     start_date: "30/4/12",
-        //     end_date: "5/5/12"
-        // },
-        // {
-        //     position: "president",
-        //     id:1,
-        //     deadline: "23/4/12",
-        //     start_date: "30/4/12",
-        //     end_date: "5/5/12"
-        // }
-        // ]
         return (
             <div>
                 <Toast onClose={() => this.setShowToast(false)} show={this.state.showToast} delay={5000} autohide>

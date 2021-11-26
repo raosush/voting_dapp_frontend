@@ -31,4 +31,18 @@ const fetchElectionCandidates = async (query) => {
     }
 }
 
-export { fetchElections, fetchElectionCandidates };
+const castVote = async (nomination) => {
+    try {
+        const response = await axios.post(baseUrl + '/vote', { 'nomination_id': `${nomination}` }, { headers: { 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` } });
+        return response.data;
+    } catch(e) {
+        if (e.response) {
+            if (e.response.data.error) {
+                return e.response.data.error;
+            }
+        }
+        return "Encountered an exception! Please try again after sometime!";
+    }
+}
+
+export { fetchElections, fetchElectionCandidates, castVote };

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { fetchElectionCandidates } from "../../services/elections/electionService";
+import { castVote, fetchElectionCandidates } from "../../services/elections/electionService";
 import { Toast } from "react-bootstrap";
 import { Button } from 'react-bootstrap';
 import "./table.css"
@@ -7,6 +7,7 @@ import "./table.css"
 export default class ElectionCandidates extends Component {
     constructor(props) {
         super(props);
+        this.castVote = this.castVote.bind(this);
         this.state = {
             candidates: [],
             election: {},
@@ -38,6 +39,26 @@ export default class ElectionCandidates extends Component {
         this.setState({
             showToast: param
         });
+    }
+
+    async castVote(e) {
+        const response = await castVote(e.target.value);
+        const { election } = this.state;
+        if (response && typeof response !== 'string') {
+            this.setState({
+                showToast: true,
+                toastMessage: response.success,
+                election: {
+                    ...election,
+                    vote_count: response.vote_count
+                }
+            });
+        } else {
+            this.setState({
+                showToast: true,
+                toastMessage: response
+            });
+        }
     }
 
     render() {
@@ -86,8 +107,8 @@ export default class ElectionCandidates extends Component {
                                         <tr className="elec-row" key={i}>
                                             <td className="elec-element">{candidate.user.username}</td>
                                             <td className="elec-element">{candidate.user.email}</td>
-                                            <td className="elec-element">0</td>
-                                            <td className="elec-element"><Button variant="primary">Vote</Button>{' '}</td>
+                                            <td className="elec-element">{election.vote_count[candidate.user.id]}</td>
+                                            <td className="elec-element"><Button variant="primary" value={candidate.id} onClick={this.castVote}>Vote</Button>{' '}</td>
                                         </tr>
 
                                     ))}
