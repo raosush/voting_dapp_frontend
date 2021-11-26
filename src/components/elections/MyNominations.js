@@ -93,7 +93,7 @@ export default class MyNominations extends Component {
                                             </th>
                                             <td className="elec-element">{candidate.user.email}</td>
                                             <td className="elec-element">{candidate.election.vote_count[candidate.user.id]}</td>
-                                            <td className="elec-element"><Button variant="primary" value={candidate.id} onClick={this.addCampaign}>Add Nomination</Button>{' '}</td>
+                                            <td className="elec-element"><Button variant="primary" value={candidate.id} onClick={this.addCampaign}>Add Campaign</Button>{' '}</td>
                                         </tr>
 
                                     ))}
